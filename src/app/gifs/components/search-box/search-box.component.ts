@@ -15,8 +15,8 @@ export class SearchBoxComponent
 {
   constructor(private gifsService: GifsService)
   {
-
   }
+
 
   @ViewChild('searchInput')
   tagInput!: ElementRef<HTMLInputElement>

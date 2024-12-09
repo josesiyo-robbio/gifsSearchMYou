@@ -11,7 +11,9 @@ import {Gif, SearchResponse} from '../interfaces/gifs.interfaces';
 
 export class GifsService
 {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.loadLocal();
+  }
 
   private _tagsHistory : string[] = [];
   private apiKey : string = environment.apiGifsKeys;
@@ -57,7 +59,26 @@ export class GifsService
 
     this._tagsHistory.unshift(tag);
 
-    this._tagsHistory = this.tagsHistory.splice(0, 10)
+    this._tagsHistory = this.tagsHistory.splice(0, 10);
+    this.saveLocal();
+
+  }
+
+  private saveLocal() : void
+  {
+    localStorage.setItem('gifs', JSON.stringify(this._tagsHistory));
+  }
+
+  private loadLocal() : void
+  {
+    if(!localStorage.getItem('gifs'))
+    {
+      return;
+    }
+    this._tagsHistory  = JSON.parse(<string>localStorage.getItem('gifs'));
+
+    if(this._tagsHistory.length === 0) return;
+    this.searchTags(this._tagsHistory[0]);
 
   }
 
