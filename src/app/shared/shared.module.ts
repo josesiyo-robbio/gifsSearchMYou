@@ -3,15 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
-
-
 @NgModule({
   declarations: [
-    SidebarComponent,
-
+    SidebarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [SidebarComponent]
 })

@@ -1,8 +1,17 @@
 <div class="d-flex justify-content-center">
-  <!-- Mostrar la animación Lottie si no hay URL -->
 
-  <!-- Mostrar la imagen si la URL está presente -->
-  <ng-template #showImage>
-    <img [src]="url" [alt]="alt" class="card-img-top" />
-  </ng-template>
+  <img [src]="url" [alt]="alt"
+       (load)="onLoad()"
+       [ngStyle]="{display: hasLoaded ? '' : 'none'}"
+       class="card-img-top animate__animated animate__backInDown">
+
+  <ng-lottie
+    *ngIf="!hasLoaded"
+
+    class="mt-3" height="35"
+    width="35"
+    [options]="options"
+    (animationCreated)="animationCreated($event)"/>
+
+
 </div>

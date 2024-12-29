@@ -7,6 +7,12 @@ import {GifsModule} from './gifs/gifs.module';
 import {SharedModule} from './shared/shared.module';
 import { provideHttpClient } from '@angular/common/http';
 
+import { provideCacheableAnimationLoader, provideLottieOptions } from 'ngx-lottie';
+import player from 'lottie-web';
+
+import 'animate.css';
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +23,9 @@ import { provideHttpClient } from '@angular/common/http';
     GifsModule,
     SharedModule,
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(),
+    provideLottieOptions({ player: () => player }),
+    provideCacheableAnimationLoader()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
