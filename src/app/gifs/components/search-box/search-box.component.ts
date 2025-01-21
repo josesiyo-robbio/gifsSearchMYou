@@ -13,23 +13,17 @@ import {GifsService} from '../../services/gifs.service';
 
 export class SearchBoxComponent
 {
-  constructor(private gifsService: GifsService)
-  {
-  }
-
+  constructor(private gifsService: GifsService) {}
 
   @ViewChild('searchInput')
   tagInput!: ElementRef<HTMLInputElement>
 
 
-  searchTag()
+  searchTag() : void
   {
-    const newTag = this.tagInput.nativeElement.value;
+    const newTag : string = this.tagInput.nativeElement.value;
     this.gifsService.searchTags(newTag);
 
     this.tagInput.nativeElement.value = '';
-
-
-
   }
 }
