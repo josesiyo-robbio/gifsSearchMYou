@@ -10,18 +10,13 @@ import {NgIf, NgStyle} from '@angular/common';
   imports: [LottieComponent, NgIf, NgStyle],
   styleUrls: ['./lazy-image.component.css']
 })
-export class LazyImageComponent implements OnInit {
+export class LazyImageComponent implements OnInit
+{
+  //CLASS PROPERTIES
+  private animationItem: AnimationItem | undefined;
+  public hasLoaded : boolean = false;
   @Input() public url!: string;
   @Input() public alt: string = '';
-
-
-  ngOnInit(): void {
-    if (!this.url) {
-
-    }
-  }
-
-  private animationItem: AnimationItem | undefined;
 
   options: AnimationOptions = {
     path: '/assets/loading.json',
@@ -29,18 +24,36 @@ export class LazyImageComponent implements OnInit {
     autoplay: true
   };
 
-  animationCreated(animationItem: AnimationItem): void {
+
+
+  //CONSTRUCTOR (NA)
+
+
+
+  //GETTERS & SETTERS (NA)
+
+
+
+  //METHODS
+  animationCreated(animationItem: AnimationItem): void
+  {
     this.animationItem = animationItem;
   }
 
-  onLoad(): void {
-
-    setTimeout(() => {
+  onLoad(): void
+  {
+    setTimeout(() : void => {
       this.hasLoaded = true;
     },1000)
   }
 
-  public hasLoaded : boolean = false;
 
+
+  //LIFECYCLE HOOKS
+  ngOnInit(): void
+  {
+    if (!this.url) {}
+
+  }
 
 }

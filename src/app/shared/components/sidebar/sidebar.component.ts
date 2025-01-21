@@ -1,6 +1,8 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {GifsService} from '../../../gifs/services/gifs.service';
 
+
+
 @Component({
   selector: 'shared-sidebar',
   standalone: false,
@@ -10,10 +12,20 @@ import {GifsService} from '../../../gifs/services/gifs.service';
 })
 export class SidebarComponent
 {
+  //CLASS PROPERTIES (NA)
 
+
+
+  //CONSTRUCTOR
   constructor(private _gifsService: GifsService) {}
 
 
+
+  //GETTERS & SETTERS (NA)
+
+
+
+  //METHODS
   public tags() : string[]
   {
     return this._gifsService.tagsHistory
@@ -22,14 +34,14 @@ export class SidebarComponent
 
 
 
-    searchTag(tag : string )
+  public searchTag(tag : string ): void
   {
-    const newTag = tag;
+    const newTag : string = tag;
     this._gifsService.searchTags(newTag);
-
-
-
-
   }
+
+
+
+  //LIFECYCLE HOOKS (NA)
 
 }
