@@ -2,6 +2,25 @@
 
 
 .sidebar {
+
   height: 100vh;
   width: 15em;
+
+}
+
+.bg-material
+{
+  background-color: #ADCCE3;
+}
+
+.text-material
+{
+  color: #334050;
+}
+
+
+.bg-material-button
+{
+  background-color: #4283EC;
+  color: white;
 }
